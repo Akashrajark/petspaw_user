@@ -14,10 +14,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
   String username = 'Roger';
   String password = '********';
 
-  // final TextEditingController _emailController = TextEditingController();
-  // final TextEditingController _usernameController = TextEditingController();
-  // final TextEditingController _passwordController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,23 +24,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
           colors: [primaryColor, Colors.white],
         ),
       ),
-      child: SafeArea(
-        child: Center(
-          child: Container(
-            margin: const EdgeInsets.all(20),
-            width: double.infinity,
-            constraints: const BoxConstraints(maxWidth: 400),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(16),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
-                  blurRadius: 20,
-                  spreadRadius: 5,
-                ),
-              ],
-            ),
+      child: Center(
+        child: Container(
+          margin: const EdgeInsets.all(20),
+          width: double.infinity,
+          constraints: const BoxConstraints(maxWidth: 400),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(16),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.1),
+                blurRadius: 20,
+                spreadRadius: 5,
+              ),
+            ],
+          ),
+          child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -87,7 +83,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     ],
                   ),
                 ),
-
                 Container(
                   padding: const EdgeInsets.all(20),
                   child: Column(
@@ -147,6 +142,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       const SizedBox(height: 12),
                       CustomButton(onPressed: () {}, label: 'Change Password'),
                       const SizedBox(height: 12),
+                      CustomButton(
+                        onPressed: () {
+                          // Navigate to My Appointments screen
+                        },
+                        label: 'My Appointments',
+                      ),
+                      const SizedBox(height: 12),
+                      CustomButton(
+                        onPressed: () {
+                          // Navigate to My Pets screen
+                        },
+                        label: 'My Pets',
+                      ),
+                      const SizedBox(height: 24),
                       CustomButton(
                         onPressed: () {},
                         label: 'LogOut',

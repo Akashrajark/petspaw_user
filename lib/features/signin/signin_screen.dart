@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:petspaw_user/common_widgets.dart/custom_button.dart';
 import 'package:petspaw_user/common_widgets.dart/custom_text_formfield.dart';
+import 'package:petspaw_user/features/home/home_screen.dart';
 import 'package:petspaw_user/features/sign_up/signup_screen.dart';
 import 'package:petspaw_user/util/value_validator.dart';
 
@@ -22,7 +23,6 @@ class SigninScreen extends StatelessWidget {
               ),
             ),
           ),
-
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
@@ -32,10 +32,10 @@ class SigninScreen extends StatelessWidget {
                 Text(
                   "Login",
                   style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                    fontSize: 45,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
+                        fontSize: 45,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
                 ),
                 SizedBox(height: 10),
                 CustomTextFormField(
@@ -65,9 +65,16 @@ class SigninScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-
                 SizedBox(height: 20),
-                CustomButton(onPressed: () {}, label: 'Login'),
+                CustomButton(
+                    onPressed: () {
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(builder: (context) => HomeScreen()),
+                        (route) => false,
+                      );
+                    },
+                    label: 'Login'),
               ],
             ),
           ),

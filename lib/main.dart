@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:petspaw_user/features/signin/signin_screen.dart';
+import 'package:petspaw_user/features/sign_up/signup_screen.dart';
 import 'package:petspaw_user/theme/app_theme.dart';
 
 void main() {
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: appTheme,
-      home: SigninScreen(),
+      home: SignupScreen(),
     );
   }
 }
