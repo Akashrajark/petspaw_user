@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:petspaw_user/features/Dashboard/dashboard_screen.dart';
 import 'package:petspaw_user/features/Profile/profile_screen.dart';
 import 'package:petspaw_user/features/appoinments/hospitals.dart';
+import 'package:petspaw_user/features/home/order_screen.dart';
 import 'package:petspaw_user/features/petstore/petstore.dart';
 import 'package:petspaw_user/theme/app_theme.dart';
 
@@ -19,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> _screens = [
     // const DashboardScreen(),
     PetStoreScreen(),
-    HospitalScreen(),
+    OrderScreen(),
     const ProfileScreen(),
   ];
 
