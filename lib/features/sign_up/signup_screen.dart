@@ -114,17 +114,44 @@ class _SignupScreenState extends State<SignupScreen> {
                           validator: emailValidator,
                         ),
                         SizedBox(height: 10),
-                        CustomTextFormField(
-                          labelText: 'Password',
-                          controller: _passController,
-                          validator: notEmptyValidator,
-                        ),
+                        TextFormField(
+                            enabled: state is! SignUpLoadingState,
+                            controller: _passController,
+                            obscureText: isObscure,
+                            validator: passwordValidator,
+                            decoration: InputDecoration(
+                              suffixIcon: IconButton(
+                                  onPressed: () {
+                                    isObscure = !isObscure;
+                                    setState(() {});
+                                  },
+                                  icon: Icon(isObscure
+                                      ? Icons.visibility_off
+                                      : Icons.visibility)),
+                              border: const OutlineInputBorder(),
+                              hintText: 'Password',
+                            )),
                         SizedBox(height: 10),
-                        CustomTextFormField(
-                          labelText: 'ConfirmPassword',
-                          controller: _confirmPassController,
-                          validator: notEmptyValidator,
-                        ),
+                        Text("Confirm Password"),
+                        SizedBox(height: 8),
+                        TextFormField(
+                            enabled: state is! SignUpLoadingState,
+                            controller: _confirmPassController,
+                            obscureText: isObscure,
+                            validator: (value) => confirmPasswordValidator(
+                                value, _passController.text.trim()),
+                            decoration: InputDecoration(
+                              suffixIcon: IconButton(
+                                  onPressed: () {
+                                    isObscure = !isObscure;
+                                    setState(() {});
+                                  },
+                                  icon: Icon(isObscure
+                                      ? Icons.visibility_off
+                                      : Icons.visibility)),
+                              border: const OutlineInputBorder(),
+                              hintText: 'Password',
+                            )),
                         SizedBox(height: 10),
                         Align(
                           alignment: Alignment.centerRight,

@@ -99,11 +99,23 @@ class _SigninScreenState extends State<SigninScreen> {
                         validator: emailValidator,
                       ),
                       SizedBox(height: 10),
-                      CustomTextFormField(
-                        labelText: 'Password',
-                        controller: _passController,
-                        validator: notEmptyValidator,
-                      ),
+                      TextFormField(
+                          enabled: state is! SigninLoadingState,
+                          controller: _passController,
+                          obscureText: isObscure,
+                          validator: passwordValidator,
+                          decoration: InputDecoration(
+                            suffixIcon: IconButton(
+                                onPressed: () {
+                                  isObscure = !isObscure;
+                                  setState(() {});
+                                },
+                                icon: Icon(isObscure
+                                    ? Icons.visibility_off
+                                    : Icons.visibility)),
+                            border: const OutlineInputBorder(),
+                            hintText: 'Password',
+                          )),
                       SizedBox(height: 10),
                       Align(
                         alignment: Alignment.centerRight,

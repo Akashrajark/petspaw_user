@@ -8,6 +8,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import '../../common_widgets.dart/change_password.dart';
 import '../../common_widgets.dart/custom_alert_dialog.dart';
 import '../../util/check_login.dart';
+import '../home/cart_screen.dart';
 import '../signin/signin_screen.dart';
 import 'edit_profile_screen.dart';
 import 'profile_bloc/profile_bloc.dart';
@@ -193,6 +194,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               ],
                             ),
                             const SizedBox(height: 24),
+                            CustomButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => CartScreen(),
+                                      ));
+                                },
+                                label: 'My Cart'),
+                            const SizedBox(height: 12),
                             CustomButton(
                                 onPressed: () {
                                   Navigator.push(
