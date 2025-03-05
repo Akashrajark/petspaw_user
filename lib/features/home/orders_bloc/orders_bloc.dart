@@ -24,7 +24,7 @@ class OrdersBloc extends Bloc<OrdersEvent, OrdersState> {
             query = query.ilike('name', '%${event.params['query']}%');
           }
 
-          if (event.params['status'] == 'Complete') {
+          if (event.params['status'] == 'Completed') {
             query = query.eq('status', event.params['status']);
           }
 

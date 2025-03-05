@@ -6,9 +6,12 @@ import 'product_card.dart';
 
 class ShopDetailedListPage extends StatefulWidget {
   final Map shop;
-  final List categories;
-  const ShopDetailedListPage(
-      {super.key, required this.shop, required this.categories});
+  // final List categories;
+  const ShopDetailedListPage({
+    super.key,
+    required this.shop,
+    // required this.categories,
+  });
 
   @override
   State<ShopDetailedListPage> createState() => _ShopDetailedListPageState();
@@ -20,7 +23,7 @@ class _ShopDetailedListPageState extends State<ShopDetailedListPage> {
   @override
   void initState() {
     products = widget.shop['shop_products'];
-    categories = widget.categories;
+    // categories = widget.categories;
     super.initState();
   }
 
@@ -66,7 +69,7 @@ class _ShopDetailedListPageState extends State<ShopDetailedListPage> {
                           color: Colors.white, fontWeight: FontWeight.bold),
                     ),
                     background: Image.network(
-                      widget.shop['image_url'],
+                      widget.shop['photo'],
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -101,7 +104,8 @@ class _ShopDetailedListPageState extends State<ShopDetailedListPage> {
                               imageUrl: products[index]['image_url'],
                               title: products[index]['name'],
                               subtitle: products[index]['stock'].toString(),
-                              price: products[index]['price'].toString(),
+                              price:
+                                  '₹${products[index]['price'].toString()}/${products[index]['unit'].toString()}',
                               cardColor: Colors.white,
                               buttonColor: Colors.green,
                               onIncrement: () {

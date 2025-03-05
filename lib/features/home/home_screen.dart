@@ -17,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
   final List<Widget> _screens = [
-    const DashboardScreen(),
+    // const DashboardScreen(),
     PetStoreScreen(),
     HospitalScreen(),
     const ProfileScreen(),
@@ -46,17 +46,17 @@ class _HomeScreenState extends State<HomeScreen> {
         currentIndex: _selectedIndex,
         backgroundColor: backgroundColor,
         onTap: _onItemTapped,
-        selectedItemColor: primaryColor,
-        unselectedItemColor: Colors.grey,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white54,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          // BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(
             icon: Icon(Icons.pets_rounded),
             label: 'Pets Store',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.schedule_rounded),
-            label: 'Appointments',
+            icon: Icon(Icons.delivery_dining),
+            label: 'Orders',
           ),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],

@@ -14,7 +14,7 @@ class ShopsBloc extends Bloc<ShopsEvent, ShopsState> {
       try {
         emit(ShopsLoadingState());
         SupabaseClient supabaseClient = Supabase.instance.client;
-        SupabaseQueryBuilder table = supabaseClient.from('shops');
+        SupabaseQueryBuilder table = supabaseClient.from('petstores');
 
         if (event is GetAllShopsEvent) {
           PostgrestFilterBuilder<List<Map<String, dynamic>>> query =
@@ -24,7 +24,7 @@ class ShopsBloc extends Bloc<ShopsEvent, ShopsState> {
             query = query.ilike('name', '%${event.params['query']}%');
           }
 
-          if (event.params['status'] == 'Complete') {
+          if (event.params['status'] == 'Completed') {
             query = query.eq('status', event.params['status']);
           }
 

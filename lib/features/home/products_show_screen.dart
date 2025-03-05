@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'product_card.dart';
 
 class ProductsShowScreen extends StatelessWidget {
-  const ProductsShowScreen({super.key});
+  final List products;
+  const ProductsShowScreen({super.key, required this.products});
 
   @override
   Widget build(BuildContext context) {
@@ -14,18 +15,17 @@ class ProductsShowScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 8),
           child: ListView.builder(
             itemBuilder: (context, index) => ProductCard(
-              imageUrl:
-                  'http://4.bp.blogspot.com/-97neiRv5w_Y/UZ_DQXVaUeI/AAAAAAAAGJI/R4wetsbFGbs/s1600/bc-cherries-1.png',
-              title: 'Cherry',
-              subtitle: 'surya mugaooo oooooooooo',
-              price: '545',
+              imageUrl: products[index]['image_url'],
+              title: products[index]['name'],
+              subtitle: '${products[index]['stock']} in stock',
+              price: '₹${products[index]['price']}/ ${products[index]['unit']}',
               cardColor: Colors.white,
               buttonColor: Colors.green,
               onIncrement: () {},
               onDecrement: () {},
               counte: 0,
             ),
-            itemCount: 10,
+            itemCount: products.length,
           ),
         ),
       ),
